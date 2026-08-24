@@ -1,16 +1,18 @@
-import { useState } from 'react'
+import { Canvas } from '@react-three/fiber'
+import { OrbitControls } from '@react-three/drei'
+import Dog from './components/Dog'
 import './App.css'
-import {Canvas} from '@react-three/fiber'
 
 function App() {
-
   return (
-    <>
-    <Canvas>
-      <Dog />
-    </Canvas>
-      
-    </>
+    <div style={{ width: '100vw', height: '100vh' }}>
+      <Canvas camera={{ position: [0, 2, 5], fov: 50 }}>
+        <ambientLight intensity={1.5} />
+        <directionalLight position={[10, 10, 10]} intensity={1} />
+        <Dog />
+        <OrbitControls />
+      </Canvas>
+    </div>
   )
 }
 

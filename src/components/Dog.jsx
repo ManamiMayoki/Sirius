@@ -1,16 +1,9 @@
 import React from 'react'
-import {Canvas,useThree} from '@react-three/fiber'
+import { useGLTF } from '@react-three/drei'
 
-const Dog = () => {
-
-    useThree(({camera,scene,gl})=>{
-        console.log(camera.position)
-    })
-  return (
-    <div>
-        Dog
-    </div>
-  )
+export default function Dog() {
+  const { scene } = useGLTF('/models/dog.glb')
+  return <primitive object={scene} scale={1} />
 }
 
-export default Dog
+useGLTF.preload('/models/dog.glb')
