@@ -8,8 +8,9 @@ const Dog=()=>{
   return(
     <>
         <primitive object={model.scene} position={[0,0,0]}/>
-        <directionalLight position={[0,5,5]} color="0xffffff" intensity={1}/>
+        <directionalLight position={[0,5,5]} color="0xffffff" intensity={10}/>
         <OrbitControls/>
     </>
   )
 }
+export default Dog
