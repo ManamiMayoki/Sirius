@@ -15,6 +15,8 @@ const Dog=()=>{
   useThree(({camera,scene,gl})=>{
     // console.log(camera.position)
     camera.position.z=0.55
+    gl.toneMapping=THREE.ReinhardToneMapping
+    gl.outputColorSpace=THREE.SRGBColorSpace
   })
 
   const textures=useTexture({
