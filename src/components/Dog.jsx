@@ -18,7 +18,8 @@ const Dog=()=>{
   })
 
   const textures=useTexture({
-    normalMap:"/models/dog_normals.jpg"
+    normalMap:"/models/dog_normals.jpg",
+    sampleMatCap: "/matcap/mat-19.png"
   })
 
   textures.normalMap.flipY=false
@@ -29,7 +30,8 @@ const Dog=()=>{
       // console.log(child.name)
       child.material=new THREE.MeshMatcapMaterial({
         normalMap:textures.normalMap,
-        color:"#800000"
+        matcap:textures.sampleMatCap
+        // color:"#800000"
       })
     }
   })
