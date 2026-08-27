@@ -21,10 +21,11 @@ const Dog=()=>{
 
   const textures=useTexture({
     normalMap:"/models/dog_normals.jpg",
-    sampleMatCap: "/matcap/mat-19.png"
+    sampleMatCap: "/matcap/mat-2.png"
   })
 
   textures.normalMap.flipY=false
+  textures.sampleMatCap.colorSpace=THREE.SRGBColorSpace
 
   model.scene.traverse((child)=>{
     // console.log(child.name)
