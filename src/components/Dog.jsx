@@ -14,26 +14,38 @@ const Dog=()=>{
 
   useThree(({camera,scene,gl})=>{
     // console.log(camera.position)
-    camera.position.z=0.55
+    camera.position.z=0.7
     gl.toneMapping=THREE.ReinhardToneMapping
     gl.outputColorSpace=THREE.SRGBColorSpace
   })
 
-  const textures=useTexture({
-    normalMap:"/models/dog_normals.jpg",
-    sampleMatCap: "/matcap/mat-2.png"
+  // const textures=useTexture({
+  //   normalMap:"/models/dog_normals.jpg",
+  //   sampleMatCap: "/matcap/mat-2.png"
+  // })
+
+
+// textures.normalMap.flipY=false
+  // textures.sampleMatCap.colorSpace=THREE.SRGBColorSpace
+
+  const[
+    normalMap,
+    sampleMatCap
+  ]=(useTexture(["/models/dog_normals.jpg","matcap/mat-2.png"]))
+  .map(texture=>{
+    texture.flipY=false
+    texture.colorSpace=THREE.SRGBColorSpace
   })
 
-  textures.normalMap.flipY=false
-  textures.sampleMatCap.colorSpace=THREE.SRGBColorSpace
+  
 
   model.scene.traverse((child)=>{
     // console.log(child.name)
     if(child.name.includes("DOG")){
       // console.log(child.name)
       child.material=new THREE.MeshMatcapMaterial({
-        normalMap:textures.normalMap,
-        matcap:textures.sampleMatCap
+        normalMap: normalMap,
+        matcap: sampleMatCap
         // color:"#800000"
       })
     }
