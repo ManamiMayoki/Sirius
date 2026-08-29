@@ -28,6 +28,8 @@ const Dog=()=>{
 // textures.normalMap.flipY=false
   // textures.sampleMatCap.colorSpace=THREE.SRGBColorSpace
 
+
+  //optimized code
   const[
     normalMap,
     sampleMatCap
@@ -40,17 +42,24 @@ const Dog=()=>{
 
   
 
+  const dogMaterial=new THREE.MeshMatcapMaterial({
+    normalMap: normalMap,
+    matcap: sampleMatCap
+  })
+
   model.scene.traverse((child)=>{
     // console.log(child.name)
     if(child.name.includes("DOG")){
       // console.log(child.name)
-      child.material=new THREE.MeshMatcapMaterial({
-        normalMap: normalMap,
-        matcap: sampleMatCap
-        // color:"#800000"
-      })
+      // child.material=new THREE.MeshMatcapMaterial({
+      //   // normalMap: normalMap,
+      //   // matcap: sampleMatCap
+      //   // color:"#800000"
+      // })
+      child.material=dogMaterial
     }
   })
+
 
   return(
     <>
