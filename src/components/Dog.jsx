@@ -35,6 +35,7 @@ const Dog=()=>{
   .map(texture=>{
     texture.flipY=false
     texture.colorSpace=THREE.SRGBColorSpace
+    return texture
   })
 
   
