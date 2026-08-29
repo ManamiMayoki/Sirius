@@ -1,7 +1,7 @@
-import react from 'react'
+import React,{useEffect} from 'react'
 import {Canvas,useThree} from '@react-three/fiber'
 import * as THREE from 'three'
-import {OrbitControls, useGLTF,useTexture} from '@react-three/drei'
+import {OrbitControls, useGLTF,useTexture,useAnimations} from '@react-three/drei'
 
 const Dog=()=>{
   const model=useGLTF('/models/dog.drc.glb')
@@ -15,9 +15,14 @@ const Dog=()=>{
   useThree(({camera,scene,gl})=>{
     // console.log(camera.position)
     camera.position.z=0.7
-    gl.toneMapping=THREE.ReinhardToneMapping
-    gl.outputColorSpace=THREE.SRGBColorSpace
+    // gl.toneMapping=THREE.ReinhardToneMapping
+    // gl.outputColorSpace=THREE.SRGBColorSpace
   })
+
+  const {actions}=useAnimations(model.animations,model.scene)
+  useEffect(()=>{
+    actions["Take 001"]?.play()
+  },[actions])
 
   // const textures=useTexture({
   //   normalMap:"/models/dog_normals.jpg",
@@ -65,7 +70,7 @@ const Dog=()=>{
     <>
         <primitive object={model.scene} position={[0.25,-0.55,0]} rotation={[0.25,Math.PI/3.9,0]}/>
         <directionalLight position={[0,5,5]} color="#ffffff" intensity={10}/>
-        <OrbitControls/>
+        {/* <OrbitControls/> */}
     </>
   )
 }
