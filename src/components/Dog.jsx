@@ -37,8 +37,10 @@ const Dog=()=>{
   //optimized code
   const[
     normalMap,
-    sampleMatCap
-  ]=(useTexture(["/models/dog_normals.jpg","matcap/mat-2.png"]))
+    sampleMatCap,
+    branchMap,
+    branchNormalMap
+  ]=(useTexture(["/models/dog_normals.jpg","matcap/mat-2.png","/models/branches_diffuse.dds","/models/branches_normals.dds"]))
   .map(texture=>{
     texture.flipY=false
     texture.colorSpace=THREE.SRGBColorSpace
