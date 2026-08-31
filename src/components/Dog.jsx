@@ -40,7 +40,7 @@ const Dog = () => {
     sampleMatCap,
     branchMap,
     branchNormalMap
-  ] = (useTexture(["/models/dog_normals.jpg", "matcap/mat-2.png", "/models/branches_diffuse.dds", "/models/branches_normals.dds"]))
+  ] = (useTexture(["/models/dog_normals.jpg", "matcap/mat-2.png", "/models/branches_diffuse.jpeg", "/models/branches_normals.jpeg"]))
     .map(texture => {
       texture.flipY = false
       texture.colorSpace = THREE.SRGBColorSpace
@@ -70,7 +70,7 @@ const Dog = () => {
       // })
       child.material = dogMaterial
     }else{
-      child.material=branchMaterial
+      child.material = branchMaterial
     }
   })
 
