@@ -69,6 +69,8 @@ const Dog = () => {
       //   // color:"#800000"
       // })
       child.material = dogMaterial
+    }else{
+      child.material=branchMaterial
     }
   })
 
