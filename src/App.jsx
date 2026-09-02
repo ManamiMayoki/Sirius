@@ -13,7 +13,10 @@ function App() {
           position: 'fixed',
           top: 0,
           left: 0,
-          zIndex: 1
+          zIndex: 1,
+          backgroundImage: 'url(/background-l.png)',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover'
         }}>
           <Dog />
         </Canvas>
