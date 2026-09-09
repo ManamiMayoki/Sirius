@@ -17,6 +17,8 @@ const Dog = () => {
   //   camera.positionz=0.55
   // })
 
+  const dogModel=useRef(model)
+
   useThree(({ camera, scene, gl }) => {
     // console.log(camera.position)
     camera.position.z = 0.7
@@ -89,9 +91,11 @@ const Dog = () => {
         endTrigger:"#section-3",
         start:"top top",
         end:"bottom bottom",
-        markers:true
+        markers:true,
+        scrub: true
       }
     })
+    tl.to(dogModel.current.scene)
   },[])
 
 
