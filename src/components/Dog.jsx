@@ -95,7 +95,10 @@ const Dog = () => {
         scrub: true
       }
     })
-    tl.to(dogModel.current.scene)
+    tl.to(dogModel.current.scene.position,{
+      z: "-=0.5",
+      y: "+=0.1"
+    })
   },[])
 
 
