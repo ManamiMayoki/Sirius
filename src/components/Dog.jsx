@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect,useRef } from 'react'
 import { Canvas, useThree } from '@react-three/fiber'
 import * as THREE from 'three'
 import { OrbitControls, useGLTF, useTexture, useAnimations } from '@react-three/drei'
@@ -16,8 +16,6 @@ const Dog = () => {
   // useEffect(()=>{
   //   camera.positionz=0.55
   // })
-
-  const dogModel=useRef(model)
 
   useThree(({ camera, scene, gl }) => {
     // console.log(camera.position)
@@ -69,6 +67,7 @@ const Dog = () => {
     map: branchMap
   })
 
+
   model.scene.traverse((child) => {
     // console.log(child.name)
     if (child.name.includes("DOG")) {
@@ -84,6 +83,8 @@ const Dog = () => {
     }
   })
 
+  const dogModel=useRef(model)
+
   useGSAP(()=>{
     const tl=gsap.timeline({
       scrollTrigger:{
@@ -95,10 +96,22 @@ const Dog = () => {
         scrub: true
       }
     })
-    tl.to(dogModel.current.scene.position,{
-      z: "-=0.5",
+    tl
+    .to(dogModel.current.scene.position,{
+      z: "-=0.75",
       y: "+=0.1"
     })
+    .to(dogModel.current.scene.rotation,{
+      x:`+=${Math.PI/15}`,
+    })
+    .to(dogModel.current.scene.rotation,{
+      y:`-=${Math.PI}`,
+    },"third")
+    .to(dogModel.current.scene.position,{
+      x: "-=0.5",
+      z: "+=0.6",
+      y: "-=0.1"
+    },"third")
   },[])
 
 
@@ -106,7 +119,7 @@ const Dog = () => {
     <>
       <primitive object={model.scene} position={[0.25, -0.55, 0]} rotation={[0.25, Math.PI / 3.9, 0]} />
       <directionalLight position={[0, 5, 5]} color="#ffffff" intensity={10} />
-      <OrbitControls/> 
+      {/* <OrbitControls/>  */}
     </>
   )
 }
