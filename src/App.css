@@ -23,7 +23,8 @@ section{
 #section-1{
   nav {
     display: flex;
-    
+    justify-content: space-between;
+
     .nav-elem{
       max-width: 10rem;
     }
