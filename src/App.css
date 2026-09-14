@@ -24,9 +24,11 @@ section{
   nav {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
     .nav-elem{
       max-width: 10rem;
+      min-height: 2rem;
     }
   }
 }
