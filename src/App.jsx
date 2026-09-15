@@ -43,7 +43,7 @@ function App() {
               </svg>
             </div>
             <div className="nav-elem">
-              Show Reel
+              <i className="ri-arrow-right-s-line"></i>Our Show reel
             </div>
             <div className="nav-elem">
               <i className="ri-menu-3-line"></i>
