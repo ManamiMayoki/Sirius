@@ -42,8 +42,12 @@ function App() {
                 <path d="M30.4351,61.1758h-10.4155L0,116.838H10.3479L30.4351,61.1758Z"></path>
               </svg>
             </div>
-            <div className="nav-elem"></div>
-            <div className="nav-elemen"></div>
+            <div className="nav-elem">
+              Show Reel
+            </div>
+            <div className="nav-elem">
+              <i className="ri-menu-3-line"></i>
+            </div>
           </nav>
         </section>
         <section id="section-2"></section>
